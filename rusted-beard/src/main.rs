@@ -1,5 +1,5 @@
-fn entropy(alpha: &str, key: &str) -> f64 {
-    return (alpha.len().pow(key.len() as u32) as f32).log2() as f64;
+fn entropy(alpha: &str, key: &str) -> f32 {
+    return (alpha.len().pow(key.len() as u32) as f32).log2();
 }
 
 fn caesar_cipher(alpha: &str, key: i16, value: &str) -> String {
@@ -31,7 +31,7 @@ fn vigenere_cipher(alpha: &str, key: &str, value: &str) -> String {
     return res;
 }
 
-fn print_line(cipher: &str, alphabet: &str, key: &str, value: &str, result: &str, entropy: f64) {
+fn print_line(cipher: &str, alphabet: &str, key: &str, value: &str, result: &str, entropy: f32) {
     println!(
         "| {:<15} | {:<62} | {:<10} | {:<10} | {:<10} | {:<10.4} |",
         cipher, alphabet, key, value, result, entropy
@@ -43,7 +43,7 @@ fn main() {
     let alpha_all = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
     let alpha_number = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     println!("{:-<136}", "");
-    println!("| {:<15} | {:<62} | {:<10} | {:<10} | {:<10} | {:<10.4} |", "Cipher", "Alphabet", "Key", "Value", "Result", "Entropy");
+    println!("| {:<15} | {:<62} | {:<10} | {:<10} | {:<10} | {:<10} |", "Cipher", "Alphabet", "Key", "Value", "Result", "Entropy");
     println!("{:-<136}", "");
     // Caesar
     print_line(
