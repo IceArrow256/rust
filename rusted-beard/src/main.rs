@@ -1,5 +1,5 @@
 fn entropy(alpha: &str, key: &str) -> f32 {
-    return (alpha.len().pow(key.len() as u32) as f32).log2();
+    (alpha.len().pow(key.len() as u32) as f32).log2()
 }
 
 fn caesar_cipher(alpha: &str, key: i16, value: &str) -> String {
@@ -12,7 +12,7 @@ fn caesar_cipher(alpha: &str, key: i16, value: &str) -> String {
                 .unwrap(),
         );
     }
-    return res;
+    res
 }
 
 fn vigenere_cipher(alpha: &str, key: &str, value: &str) -> String {
@@ -28,7 +28,7 @@ fn vigenere_cipher(alpha: &str, key: &str, value: &str) -> String {
         );
         i = i + 1 % key.len();
     }
-    return res;
+    res
 }
 
 fn print_line(cipher: &str, alphabet: &str, key: &str, value: &str, result: &str, entropy: f32) {
