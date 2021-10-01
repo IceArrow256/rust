@@ -1,8 +1,16 @@
-mod front_of_house {
-    pub mod hosting {
-        pub fn add_to_waitlist() {}
-    }
-}
+// use crate::front_of_house::hosting;
+// use crate::front_of_house::hosting::add_to_waitlist;
+// pub use crate::front_of_house::hosting::add_to_waitlist as atw; //
+
+// use std::io;
+// use std::io::Write;
+// ==
+// use std::io::{self, Write};
+
+mod front_of_house;
+pub use crate::front_of_house::hosting;
+pub use crate::front_of_house::hosting::add_to_waitlist;
+pub use crate::front_of_house::hosting::add_to_waitlist as atw;
 
 pub fn eat_at_restaurant() {
     // Absolute path
@@ -18,6 +26,10 @@ pub fn eat_at_restaurant() {
     // meal.seasonal_fruit = String::from("blueberries");
     let order1 = back_of_house::Appetizer::Soup;
     let order2 = back_of_house::Appetizer::Salad;
+
+    hosting::add_to_waitlist();
+    add_to_waitlist();
+    atw();
 }
 
 fn serve_order() {}
